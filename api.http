@@ -1,0 +1,32 @@
+@baseURL = http://localhost:3333
+@contentType = application/json
+
+POST {{baseURL}}/events
+Content-Type: {{contentType}}
+
+{
+  "title": "Novo evento",
+  "details": null,
+  "maximumAttendees": 1
+}
+
+###
+POST {{baseURL}}/events/770fe075-02db-41a2-aab0-38ed5f925b62/attendees
+Content-Type: {{contentType}}
+
+{
+  "name": "Gustavo M Nogueira",
+  "email": "gustavo@gmail.com"
+}
+
+###
+GET  {{baseURL}}/events/770fe075-02db-41a2-aab0-38ed5f925b62
+
+###
+GET  {{baseURL}}/attendees/2/badge
+
+###
+GET  {{baseURL}}/attendees/3/check-in
+
+###
+GET  {{baseURL}}/events/770fe075-02db-41a2-aab0-38ed5f925b62/attendees?pageIndex=0&query=m
